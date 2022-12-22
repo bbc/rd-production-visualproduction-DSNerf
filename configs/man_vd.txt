@@ -1,4 +1,5 @@
 expname = man-vd
+datadir = ./data/man_vd
 dataset_type = llff
 factor = 4
 llffhold = 8
