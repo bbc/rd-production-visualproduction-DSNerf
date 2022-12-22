@@ -1,5 +1,5 @@
 expname = man-vd
-datadir = ./data/man_vd
+datadir = /D/ds-nerf/data/man-vd
 dataset_type = llff
 factor = 4
 llffhold = 8
