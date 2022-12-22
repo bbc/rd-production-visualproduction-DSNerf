@@ -834,7 +834,10 @@ def train():
                 rays_depth = np.stack(get_rays_by_coord_np(H, W, focal, poses[i,:3,:4], depth_gts[i]['coord']), axis=0) # 2 x N x 3
                 # print(rays_depth.shape)
                 rays_depth = np.transpose(rays_depth, [1,0,2])
+                # print (depth_gts[i].keys())
                 depth_value = np.repeat(depth_gts[i]['depth'][:,None,None], 3, axis=2) # N x 1 x 3
+                # print(type (depth_gts[i]))
+                # print (depth_gts[i].keys())
                 weights = np.repeat(depth_gts[i]['error'][:,None,None], 3, axis=2) # N x 1 x 3
                 rays_depth = np.concatenate([rays_depth, depth_value, weights], axis=1) # N x 4 x 3
                 rays_depth_list.append(rays_depth)
