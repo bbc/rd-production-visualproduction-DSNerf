@@ -144,3 +144,6 @@ scripts
 web
 *.pyc
 .vscode
+
+
+.DS_Store

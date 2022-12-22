@@ -61,8 +61,6 @@ def _minify(basedir, factors=[], resolutions=[]):
         print('Done')
             
         
-        
-        
 def _load_data(basedir, factor=None, width=None, height=None, load_imgs=True):
     
     poses_arr = np.load(os.path.join(basedir, 'poses_bounds.npy'))
@@ -118,15 +116,14 @@ def _load_data(basedir, factor=None, width=None, height=None, load_imgs=True):
     imgs  = [imread(f)[...,:3]/255. for f in imgfiles]
     print(imgfiles)
 
+    print(type(imgs[0]))
+    print(imgs[0].shape)
+    print(imgs[1].shape)
+
     imgs = np.stack(imgs, -1)  
     
     print('Loaded image data', imgs.shape, poses[:,-1,0])
     return poses, bds, imgs
-
-    
-            
-            
-    
 
 def normalize(x):
     return x / np.linalg.norm(x)
@@ -154,8 +151,6 @@ def poses_avg(poses):
     
     return c2w
 
-
-
 def render_path_spiral(c2w, up, rads, focal, zdelta, zrate, rots, N):
     render_poses = []
     rads = np.array(list(rads) + [1.])
@@ -167,8 +162,6 @@ def render_path_spiral(c2w, up, rads, focal, zdelta, zrate, rots, N):
         render_poses.append(np.concatenate([viewmatrix(z, up, c), hwf], 1))
     return render_poses
     
-
-
 def recenter_poses(poses):
 
     poses_ = poses+0
@@ -182,9 +175,6 @@ def recenter_poses(poses):
     poses_[:,:3,:4] = poses[:,:3,:4]
     poses = poses_
     return poses
-
-
-#####################
 
 
 def spherify_poses(poses, bds):
