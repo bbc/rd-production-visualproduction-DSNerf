@@ -1,5 +1,5 @@
 expname = fern_2v
-dataset_type = llff
+dataset_type = colmap_llff
 factor = 4
 llffhold = 8
 N_rand = 4096

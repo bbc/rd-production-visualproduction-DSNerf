@@ -950,7 +950,7 @@ def train():
         # timer_0 = time.perf_counter()
 
         if args.colmap_depth:
-            N_batch = batch_rays.shape[1]
+            N_batch = batch_rays.shape[1]      
             batch_rays = torch.cat([batch_rays, batch_rays_depth], 1) # (2, 2 * N_rand, 3)
 
         # timer_concate = time.perf_counter()
